@@ -187,10 +187,36 @@ class DoublyList {
 }
 
 const dl = new DoublyList();
-dl.addFirst(2);
-dl.addFirst(3);
-dl.addFirst(4);
 dl.addFirst(5);
-dl.addLast(10);
-dl.insertAfterNode(4, 9);
+dl.addFirst(4);
+dl.addFirst(3);
+dl.addFirst(2);
+dl.addFirst(1);
+
 dl.print();
+
+/////////////////////////////////////////////////
+//  function of dll find two numbers that sum to
+//  a target value from a sorted dll in a single iteration
+
+// 1,2,3,4,5,6 t=6
+
+function findTwo(target) {
+  let start = this.head;
+  let end = this.head;
+  while (end.next !== null) {
+    end = end.next;
+  }
+
+  while (start !== end) {
+    let sum = 0;
+    sum += start.data + end.data;
+    if (sum === target) {
+      return { start: start.data, end: end.data };
+    }
+    sum > target ? (end = end.prev) : (start = start.next);
+  }
+  return -1;
+}
+
+DoublyList.prototype.findTwo = findTwo;
