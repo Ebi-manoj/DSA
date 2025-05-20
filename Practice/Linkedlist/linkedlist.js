@@ -116,6 +116,28 @@ function getMiddle() {
   }
   return slow;
 }
+Linkedlist.prototype.getMiddle = getMiddle;
+
+function deleteNth(n) {
+  let slow = this.head;
+  let fast = this.head;
+
+  for (let i = 0; i < n; i++) {
+    fast = fast.next;
+  }
+  if (fast == null) {
+    return (this.head = this.head.next);
+  }
+  while (fast.next !== null) {
+    slow = slow.next;
+    fast = fast.next;
+  }
+  slow.next = slow.next.next;
+  this.print();
+  return this.head;
+}
+Linkedlist.prototype.deleteNth = deleteNth;
+
 const linkedlist = new Linkedlist();
 
 linkedlist.addFirst(5);
@@ -123,9 +145,7 @@ linkedlist.addFirst(4);
 linkedlist.addFirst(3);
 linkedlist.addFirst(2);
 linkedlist.addFirst(1);
-linkedlist.print();
-Linkedlist.prototype.getMiddle = getMiddle;
-console.log(linkedlist.getMiddle());
+console.log(linkedlist.deleteNth(2));
 
 //////////////////////////////////////////////////////////////////////////////////
 /////////////////////////DOUBLY LINKEDLIST////////////////////////////////////////
