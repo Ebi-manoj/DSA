@@ -88,9 +88,109 @@ class Linkedlist {
   }
 }
 
-const linkedlist = new Linkedlist();
-linkedlist.addFirst(2);
-linkedlist.addFirst(3);
-linkedlist.addFirst(5);
-linkedlist.removeAt(0);
-linkedlist.print();
+// const linkedlist = new Linkedlist();
+// linkedlist.addFirst(2);
+// linkedlist.addFirst(3);
+// linkedlist.addFirst(5);
+// linkedlist.removeAt(0);
+// linkedlist.print();
+
+//////////////////////////////////////////////////////////
+//Reverse a linkedList
+function reverseLinkedlist() {
+  let prev = null;
+  let current = this.head;
+
+  while (current !== null) {
+    const next = current.next;
+    current.next = prev;
+    prev = current;
+    current = next;
+  }
+  return prev;
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+/////////////////////////DOUBLY LINKEDLIST////////////////////////////////////////
+
+class DNode {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+    this.prev = null;
+  }
+}
+
+class DoublyList {
+  constructor() {
+    this.head = null;
+  }
+
+  addFirst(data) {
+    const newNode = new DNode(data);
+    newNode.prev = null;
+    newNode.next = this.head;
+    if (this.head) {
+      this.head.prev = newNode;
+    }
+    this.head = newNode;
+  }
+
+  addLast(data) {
+    if (this.head === null) return this.addFirst(data);
+    const newNode = new DNode(data);
+    newNode.next = null;
+    let lastNode = this.head;
+    while (lastNode.next !== null) {
+      lastNode = lastNode.next;
+    }
+    lastNode.next = newNode;
+    newNode.prev = lastNode;
+  }
+
+  findNode(node) {
+    let current = this.head;
+    while (current.next !== null) {
+      if (current.data === node) return current;
+      current = current.next;
+    }
+  }
+
+  insertAfterNode(node, data) {
+    const prevNode = this.findNode(node);
+    if (prevNode.next === null) return this.addLast(data);
+    const newNode = new DNode(data);
+    newNode.next = prevNode.next;
+    prevNode.next = newNode;
+    newNode.prev = prevNode;
+    newNode.next.prev = newNode;
+  }
+
+  print() {
+    let current = this.head;
+    while (current !== null) {
+      console.log(current.data);
+      current = current.next;
+    }
+  }
+
+  printReverse() {
+    let last = this.head;
+    while (last.next) {
+      last = last.next;
+    }
+    while (last) {
+      console.log(last.data);
+      last = last.prev;
+    }
+  }
+}
+
+const dl = new DoublyList();
+dl.addFirst(2);
+dl.addFirst(3);
+dl.addFirst(4);
+dl.addFirst(5);
+dl.addLast(10);
+dl.insertAfterNode(4, 9);
+dl.print();
