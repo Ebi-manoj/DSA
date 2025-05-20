@@ -88,13 +88,6 @@ class Linkedlist {
   }
 }
 
-// const linkedlist = new Linkedlist();
-// linkedlist.addFirst(2);
-// linkedlist.addFirst(3);
-// linkedlist.addFirst(5);
-// linkedlist.removeAt(0);
-// linkedlist.print();
-
 //////////////////////////////////////////////////////////
 //Reverse a linkedList
 function reverseLinkedlist() {
@@ -109,6 +102,30 @@ function reverseLinkedlist() {
   }
   return prev;
 }
+
+/////////////////////////////////////////
+//Find middle of linkedlist
+// [1,2,3,4,5,6]
+function getMiddle() {
+  let slow = this.head;
+  let fast = this.head;
+
+  while (fast !== null && fast.next !== null) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  return slow;
+}
+const linkedlist = new Linkedlist();
+
+linkedlist.addFirst(5);
+linkedlist.addFirst(4);
+linkedlist.addFirst(3);
+linkedlist.addFirst(2);
+linkedlist.addFirst(1);
+linkedlist.print();
+Linkedlist.prototype.getMiddle = getMiddle;
+console.log(linkedlist.getMiddle());
 
 //////////////////////////////////////////////////////////////////////////////////
 /////////////////////////DOUBLY LINKEDLIST////////////////////////////////////////
@@ -192,8 +209,6 @@ dl.addFirst(4);
 dl.addFirst(3);
 dl.addFirst(2);
 dl.addFirst(1);
-
-dl.print();
 
 /////////////////////////////////////////////////
 //  function of dll find two numbers that sum to
