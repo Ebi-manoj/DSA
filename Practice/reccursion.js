@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////
 //1) Print n to 1
 
-function printReverse() {
+function question1() {
   function print(n) {
     console.log(n);
     if (n == 1) return;
@@ -13,7 +13,7 @@ function printReverse() {
 ////////////////////////////////////////////////////////////////////////////
 //2) print 1 to n
 
-function printOrder() {
+function question2() {
   function print(n) {
     if (n == 0) return;
     print(n - 1);
@@ -25,7 +25,7 @@ function printOrder() {
 ////////////////////////////////////////////////////////////////////////////////
 //3) print both
 
-function printBoth() {
+function question3() {
   function print(n) {
     if (n == 0) return;
     console.log(n);
@@ -34,4 +34,26 @@ function printBoth() {
   }
   print(5);
 }
-printBoth();
+
+////////////////////////////////////////////////////////////////////////////
+//4) find sum of numbers till n
+
+function question4() {
+  function findsum(n) {
+    if (n == 1) return 1;
+    return n + findsum(n - 1);
+  }
+  console.log(findsum(5));
+}
+question4();
+
+//////////////////////////////////////////////////////////////////////////////
+//5) Print factorial of a number
+
+function question5() {
+  function factorial(n) {
+    if (n < 2) return n;
+    return n * factorial(n - 1);
+  }
+  console.log(factorial(5));
+}
