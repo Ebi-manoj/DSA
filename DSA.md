@@ -235,3 +235,60 @@ These complexities are often expressed using **Big O notation**, which provides 
 - **Space Complexity**: O(n \* m)
 
 > Where **n** is the number of keys and **m** is the length of the key.
+
+## Stack vs Heap Memory
+
+### 📦 1. Stack Memory – Fast and Organized
+
+✅ Used for:
+
+- Function calls
+- Local variables (like numbers, booleans, temporary values)
+- Keeps track of "who called whom" in a program
+
+🧱 Structure:
+
+- LIFO (Last In, First Out) — like a stack of plates 🍽️
+- Memory is managed automatically — when a function ends, its stack memory is cleared.
+
+⚡ Example:
+
+```js
+function add(a, b) {
+  let result = a + b; // result is stored in stack
+  return result;
+}
+```
+
+🔁 What happens:
+When add() is called, a stack frame is created for it.
+
+Inside it, a, b, and result are stored.
+
+After return, memory is cleared.
+
+### 🧳 2. Heap Memory – Flexible and Dynamic
+
+✅ Used for:
+Objects, arrays, or anything created dynamically (new Object(), or in JS: {}, [])
+
+Memory that needs to persist beyond function calls
+
+🧱 Structure:
+No order like LIFO
+
+Memory is allocated and freed manually (in C/C++) or via garbage collection (in JS, Java, etc.)
+
+⚡ Example in JavaScript:
+
+```js
+function createUser() {
+  let user = { name: 'Ebi' }; // stored in heap
+  return user;
+}
+```
+
+🔁 What happens:
+The { name: "Ebi" } object is stored in the heap.
+
+- The user variable in the stack holds a reference (a pointer) to the heap.
