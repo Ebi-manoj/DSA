@@ -45,7 +45,6 @@ function question4() {
   }
   console.log(findsum(5));
 }
-question4();
 
 //////////////////////////////////////////////////////////////////////////////
 //5) Print factorial of a number
@@ -57,3 +56,29 @@ function question5() {
   }
   console.log(factorial(5));
 }
+
+////////////////////////////////////////////////////////////////////////////////
+//6) Sum of digits
+
+function question6() {
+  function sumOfDigit(digit, start, end) {
+    if (start == end - 1) return Number(digit[start]);
+    return Number(digit[start]) + sumOfDigit(digit, start + 1, end);
+  }
+  let digit = '18675';
+  console.log(sumOfDigit(digit, 0, digit.length));
+}
+
+/////////////////////////////////////////////////////////////////////////////
+///7) Product of digits
+
+function question7() {
+  function prodDigit(n) {
+    if (n == 0) return 1;
+    return (n % 10) * prodDigit(Math.floor(n / 10));
+  }
+  console.log(prodDigit(12345));
+}
+question7();
+/////////////////////////////////////////////////////////////////////////////////
+//
