@@ -79,6 +79,56 @@ function question7() {
   }
   console.log(prodDigit(12345));
 }
-question7();
+
 /////////////////////////////////////////////////////////////////////////////////
-//
+//8) Reverse a number
+
+function question8() {
+  function printReverse(n) {
+    if (n == 0) return;
+    console.log(n % 10);
+    reverse(Math.floor(n / 10));
+  }
+
+  function reverse(n) {
+    function helper(n, rev) {
+      if (n === 0) return rev;
+      return helper(Math.floor(n / 10), rev * 10 + (n % 10));
+    }
+    return helper(n, 0);
+  }
+
+  console.log(reverse(1234));
+
+  //   printReverse(12345);
+}
+
+//////////////////////////////////////////////////////////////////////
+//9) Palindrome or not
+
+function question9() {
+  function palindrome(str) {
+    function helper(str, s, e) {
+      if (s > e) return true;
+
+      if (str[s] !== str[e]) return false;
+
+      return helper(str, ++s, --e);
+    }
+    return helper(str, 0, str.length - 1);
+  }
+  console.log(palindrome('malayalam'));
+}
+
+/////////////////////////////////////////////////////////////////////////////
+////10) Count zero in number
+
+function question10() {
+  function countzero(n, c = 0) {
+    if (n == 0) return c;
+    if (n % 10 == 0) c++;
+    return countzero(Math.floor(n / 10), c);
+  }
+  console.log(countzero(2306077));
+}
+question10();
