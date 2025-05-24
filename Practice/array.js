@@ -101,3 +101,15 @@ function deleteEvenNumber() {
 }
 
 deleteEvenNumber();
+
+//////////////////////////////////////////////////////////////////////
+///LEETCODE121 Buy and sell stock [7,1,5,3,6,4]
+const maxProfit = function (prices) {
+  let max = 0;
+  let minPrice = Infinity;
+  for (let i = 0; i < prices.length; i++) {
+    minPrice = prices[i] < minPrice ? prices[i] : minPrice;
+    if (max < prices[i] - minPrice) max = prices[i] - minPrice;
+  }
+  return max;
+};
