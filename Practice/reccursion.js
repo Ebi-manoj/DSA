@@ -131,4 +131,32 @@ function question10() {
   }
   console.log(countzero(2306077));
 }
-question10();
+
+////////////////////////////////////////////////////////////////////////////////
+///11) Check if array sorted or not using reccursion
+
+function question11() {
+  function sorted(arr) {
+    function helper(n) {
+      if (n == arr.length - 1) return true;
+      if (arr[n + 1] < arr[n]) return false;
+      return helper(n + 1);
+    }
+    return helper(0);
+  }
+
+  console.log(sorted([1, 2, 4, 6, 8, 1]));
+}
+
+/////////////////////////////////////////////////////////////////
+//12) Linear search with reccursion
+
+function question12() {
+  function search(arr, target, n) {
+    if (n == arr.length) return -1;
+    if (arr[n] === target) return n;
+    return search(arr, target, n + 1);
+  }
+  console.log(search([1, 2, 3, 4, 5, 6], 6, 0));
+}
+question12();

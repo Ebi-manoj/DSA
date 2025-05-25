@@ -255,3 +255,32 @@ function findTwo(target) {
 }
 
 DoublyList.prototype.findTwo = findTwo;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////LEETCODE QUESTIONS AND MY SOLUTIONS////////////////////////////////////////////////
+
+/////////////////////////////////////
+//LEETCODE 21 merge two sorted list
+const mergeTwoLists = function (list1, list2) {
+  if (!list1 && !list2) return list1;
+  const newNode = new ListNode(0);
+  function add(list) {
+    while (list !== null) {
+      let current = newNode;
+      while (current !== null) {
+        if (current.next == null || current.next.val > list.val) {
+          current = current;
+          break;
+        }
+        current = current.next;
+      }
+      const addNode = new ListNode(list.val);
+      addNode.next = current.next;
+      current.next = addNode;
+      list = list.next;
+    }
+  }
+  add(list1);
+  add(list2);
+  return newNode.next;
+};

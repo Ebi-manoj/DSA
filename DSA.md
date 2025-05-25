@@ -71,7 +71,10 @@ If you pack smart (use the right data structure) and work smart (use a good algo
 
 ## 📦 Memory Allocation & 🕳️ Memory Leak
 
-### 📦 Why is Memory Allocation Important?
+Memory allocation refers to the process of assigning and deallocating memory in a computer system.
+There are various memory allocation techniques, including stack-based allocation and dynamic allocation.
+
+#### 📦 Why is Memory Allocation Important?
 
 - 💾 Our computer has **limited RAM**.
 - 🧠 We need to **store and manage data properly**.
@@ -79,16 +82,26 @@ If you pack smart (use the right data structure) and work smart (use a good algo
   - Prevents **wastage of memory**
   - Makes programs **faster** and more **stable**
 
-### 🕳️ What is a Memory Leak?
+#### 🕳️ What is a Memory Leak?
 
 A **Memory Leak** happens when your program **allocates memory**, but **doesn’t release (free)** it when it’s no longer needed.
 
-### 💥 Result:
+#### 💥 Result:
 
 - 🚨 Your program keeps **using more memory** over time.
 - 🐢 It can **slow down** or even **crash** the system if RAM runs out!
 
----
+#### Stack-Based Allocation
+
+Stack-based allocation is a common method used by programming languages to manage memory. It involves utilizing a region of memory called the stack, which automatically allocates and deallocates memory for variables within a limited scope. This approach is fast and efficient, making it suitable for managing small and short-lived data.
+
+#### Dynamic Allocation
+
+Dynamic allocation, on the other hand, allows for more flexible memory management. It involves allocating memory from a region called the heap, which is larger and can accommodate more significant amounts of data. Dynamic allocation is particularly useful when dealing with data structures that require varying amounts of memory or when handling large datasets.
+
+#### Memory Leaks: Causes and Consequences
+
+Memory leaks are a common issue in software development that can have detrimental effects on the performance and stability of an application. A memory leak occurs when allocated memory is not properly deallocated, resulting in memory being reserved but no longer accessible for other processes. Over time, memory leaks can lead to increased memory consumption and a gradual degradation of system performance.
 
 ## 📘 Complexity Analysis
 
