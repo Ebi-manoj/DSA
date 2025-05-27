@@ -330,3 +330,45 @@ const mergeTwoLists = function (list1, list2) {
   add(list2);
   return newNode.next;
 };
+
+///////////////////////////////////////////
+//LEETCODE 141 Detect the cycle exists
+const hasCycle = function (head) {
+  let slow = head;
+  let fast = head;
+  while (fast !== null && fast.next !== null) {
+    slow = slow.next;
+    fast = fast.next.next;
+    if (slow == fast) return true;
+  }
+  return false;
+};
+
+/////////////////////////////////////////////
+//LEETCODE 876 Middle of the linkedlist
+const middleNode = function (head) {
+  let slow = head;
+  let fast = head;
+  while (fast != null && fast.next != null) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  return slow;
+};
+
+//////////////////////////////////////////////
+//LEETCODE 83 remove duplicates
+const deleteDuplicates = function (head) {
+  if (!head) return head;
+  let index = head;
+  let current = head.next;
+  while (current !== null) {
+    if (current.val !== index.val) {
+      index.next = current;
+      index = index.next;
+    }
+    current = current.next;
+  }
+  index.next = null;
+  return head;
+};

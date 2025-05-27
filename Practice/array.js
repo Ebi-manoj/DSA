@@ -118,10 +118,10 @@ function reverseArray(arr) {
 }
 reverseArray([1, 2, 3, 4, 5, 6, 7, 8]);
 
-//////////////////////////////////////////////////////
-///Find maximum and minimum element
+///////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////LEETCODE PROBLEMS AND MY SOLUTIONS///////////////////////////////////////
 
-//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////
 ///LEETCODE121 Buy and sell stock [7,1,5,3,6,4]
 const maxProfit = function (prices) {
   let max = 0;
@@ -131,4 +131,29 @@ const maxProfit = function (prices) {
     if (max < prices[i] - minPrice) max = prices[i] - minPrice;
   }
   return max;
+};
+
+////////////////////////////////////////////
+///LEETCODE 268 Missing numbers
+const missingNumber = function (nums) {
+  let max = nums.length;
+
+  while (max >= 0) {
+    if (!nums.includes(max)) return max;
+    max--;
+  }
+
+  // o(n^2) time -not optimized try in o(n)
+};
+
+//////////////////////////////////////////////
+///LEETCODE 283 Move zeros
+const moveZeroes = function (nums) {
+  let index = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      [nums[index], nums[i]] = [nums[i], nums[index]];
+      index++;
+    }
+  }
 };
