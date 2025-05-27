@@ -100,7 +100,26 @@ function deleteEvenNumber() {
   console.log(arr);
 }
 
-deleteEvenNumber();
+///////////////////////////////////////////////////////////////////////
+//Reverse an array
+
+function reverseArray(arr) {
+  let start = 0;
+  let end = arr.length - 1;
+
+  while (start < end) {
+    let temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+    start++;
+    end--;
+  }
+  console.log(arr);
+}
+reverseArray([1, 2, 3, 4, 5, 6, 7, 8]);
+
+//////////////////////////////////////////////////////
+///Find maximum and minimum element
 
 //////////////////////////////////////////////////////////////////////
 ///LEETCODE121 Buy and sell stock [7,1,5,3,6,4]

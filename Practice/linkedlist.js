@@ -140,12 +140,12 @@ Linkedlist.prototype.deleteNth = deleteNth;
 
 const linkedlist = new Linkedlist();
 
-linkedlist.addFirst(5);
-linkedlist.addFirst(4);
-linkedlist.addFirst(3);
-linkedlist.addFirst(2);
-linkedlist.addFirst(1);
-console.log(linkedlist.deleteNth(2));
+// linkedlist.addFirst(5);
+// linkedlist.addFirst(4);
+// linkedlist.addFirst(3);
+// linkedlist.addFirst(2);
+// linkedlist.addFirst(1);
+// console.log(linkedlist.deleteNth(2));
 
 //////////////////////////////////////////////////////////////////////////////////
 /////////////////////////DOUBLY LINKEDLIST////////////////////////////////////////
@@ -223,13 +223,6 @@ class DoublyList {
   }
 }
 
-const dl = new DoublyList();
-dl.addFirst(5);
-dl.addFirst(4);
-dl.addFirst(3);
-dl.addFirst(2);
-dl.addFirst(1);
-
 /////////////////////////////////////////////////
 //  function of dll find two numbers that sum to
 //  a target value from a sorted dll in a single iteration
@@ -255,6 +248,59 @@ function findTwo(target) {
 }
 
 DoublyList.prototype.findTwo = findTwo;
+
+// const dl = new DoublyList();
+// dl.addFirst(5);
+// dl.addFirst(4);
+// dl.addFirst(3);
+// dl.addFirst(2);
+// dl.addFirst(1);
+
+////////////////////////////////////////////////////////////////////////////
+//////////////////CIRCULAR LINKEDLIST///////////////////////////////////////
+
+class CNode {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
+}
+
+class ClinkedList {
+  constructor() {
+    this.head = null;
+  }
+
+  insertEnd(data) {
+    const newNode = new CNode(data);
+    if (!this.head) {
+      this.head = newNode;
+      newNode.next = this.head;
+      return;
+    }
+    let current = this.head;
+    while (current.next !== this.head) {
+      current = current.next;
+    }
+    current.next = newNode;
+    newNode.next = this.head;
+  }
+  print() {
+    if (!this.head) return console.log('Empty list');
+    let current = this.head;
+    do {
+      console.log(current.data);
+      current = current.next;
+    } while (current !== this.head);
+  }
+}
+
+const CLL = new ClinkedList();
+CLL.insertEnd(5);
+CLL.insertEnd(6);
+CLL.insertEnd(7);
+CLL.insertEnd(8);
+CLL.print();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////LEETCODE QUESTIONS AND MY SOLUTIONS////////////////////////////////////////////////
