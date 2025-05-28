@@ -40,12 +40,96 @@ function validAnagram(x, y) {
   }
   return true;
 }
-
 // console.log(validAnagram('listen','silent'))
 // console.log(validAnagram('listen','sileot'))
 
-//////////////////////////////////////////////////////////////
-////4) LEETCODE-1768 Merge string alternatively
+/////////////////////////////////////////////////
+///hello world-> olleh dlrow
+
+function reverseString(str) {
+  let result = '';
+  let word = '';
+  for (let i = 0; i <= str.length; i++) {
+    const char = str[i];
+
+    if (char == ' ' || i === str.length) {
+      for (let j = word.length - 1; j >= 0; j--) {
+        result += word[j];
+      }
+      if (i !== str.length) result += ' ';
+      word = '';
+    } else {
+      word += char;
+    }
+  }
+
+  console.log(result);
+}
+// reverseString('hello world');
+
+//////////////////////////////////////////////////
+////Find longest palindrome substring
+function substring(str) {
+  let maxLength = 0;
+  let startIdx = 0;
+
+  for (let start = 0; start < str.length; start++) {
+    for (let end = start; end < str.length; end++) {
+      if (checkPalindrome(str, start, end)) {
+        if (end - start + 1 > maxLength) {
+          maxLength = end - start + 1;
+          startIdx = start;
+        }
+      }
+    }
+  }
+
+  if (maxLength === 0) {
+    console.log('No palindrome');
+  } else {
+    console.log(str.slice(startIdx, startIdx + maxLength));
+  }
+
+  function checkPalindrome(str, start, end) {
+    while (start < end) {
+      if (str[start] !== str[end]) return false;
+      start++;
+      end--;
+    }
+    return true;
+  }
+}
+// substring('abbash')
+
+/////////////////////////////////////////////////////
+////Find the longest substring that doesnt have vowels
+
+function substring() {
+  const str = 'dtastrcatrs';
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  let index = 0;
+  let s = 0;
+  let e = str.length - 1;
+  let max = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (vowels.includes(str[i])) {
+      if (i - index > s - e) {
+        max = i - index;
+        e = i - 1;
+        s = index;
+      }
+      index = i + 1;
+    }
+  }
+
+  console.log(str.slice(s, e + 1));
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////LEETCODE AND MY SOLUTIONS
+
+///////////////////////////////
+////LEETCODE-1768 Merge string alternatively
 
 const mergeAlternately = function (word1, word2) {
   const length = Math.max(word1.length, word2.length);
