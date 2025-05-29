@@ -105,7 +105,7 @@ function substring(str) {
 ////Find the longest substring that doesnt have vowels
 
 function substring() {
-  const str = 'dtastrcatrs';
+  const str = 'dtstarcatrs';
   const vowels = ['a', 'e', 'i', 'o', 'u'];
   let index = 0;
   let s = 0;
@@ -113,7 +113,7 @@ function substring() {
   let max = 0;
   for (let i = 0; i < str.length; i++) {
     if (vowels.includes(str[i])) {
-      if (i - index > s - e) {
+      if (i - index > max) {
         max = i - index;
         e = i - 1;
         s = index;

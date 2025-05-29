@@ -1,3 +1,31 @@
+///////////////////////////////////////////////////////////
+///Third larget element
+function thirdMax(nums) {
+  let max = nums[0];
+  let secMax = -Infinity;
+  let thirdMax = -Infinity;
+
+  if (nums.length < 3) return nums[0] > nums[1] ? nums[1] : nums[0];
+
+  for (const n of nums) {
+    if (n > max) {
+      thirdMax = secMax;
+      secMax = max;
+      max = n;
+    }
+    if (n > secMax && n < max) {
+      thirdMax = secMax;
+      secMax = n;
+    }
+    if (n > thirdMax && n < secMax) {
+      thirdMax = n;
+    }
+  }
+
+  return thirdMax;
+}
+// console.log(thirdMax(nums))
+
 ////////////////////////////////////////////////////////////
 // 1) Rotate array  by kth time
 
