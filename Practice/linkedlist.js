@@ -78,6 +78,20 @@ class Linkedlist {
       current.next = current.next.next;
     }
   }
+  removeMiddle() {
+    if (!this.head) return;
+    if (!this.head.next) return (this.head = null);
+
+    let slow = this.head;
+    let fast = this.head;
+    let prev = null;
+    while (fast && fast.next !== null) {
+      prev = slow;
+      slow = slow.next;
+      fast = fast.next.next;
+    }
+    prev.next = slow.next;
+  }
 
   print() {
     let current = this.head;
@@ -192,7 +206,19 @@ class DoublyList {
       current = current.next;
     }
   }
+  reverse() {
+    if (!this.head) return;
+    let temp = null;
+    let current = this.head;
+    while (current !== null) {
+      temp = current.prev;
+      current.prev = current.next;
+      current.next = temp;
 
+      current = current.prev;
+    }
+    this.head = temp;
+  }
   insertAfterNode(node, data) {
     const prevNode = this.findNode(node);
     if (prevNode.next === null) return this.addLast(data);
