@@ -305,3 +305,35 @@ function createUser() {
 The { name: "Ebi" } object is stored in the heap.
 
 - The user variable in the stack holds a reference (a pointer) to the heap.
+
+---
+
+---
+
+### 🧠 What is XOR?
+
+**XOR** stands for **Exclusive OR**. It is a bitwise operator that compares two bits and returns:
+
+- `1` if the bits are **different**
+- `0` if the bits are **same**
+
+#### XOR Truth Table:
+
+| A   | B   | A ⊕ B |
+| --- | --- | ----- |
+| 0   | 0   | 0     |
+| 0   | 1   | 1     |
+| 1   | 0   | 1     |
+| 1   | 1   | 0     |
+
+#### ✅ XOR Properties (Very Useful in Coding)
+
+| Property               | Meaning                          |
+| ---------------------- | -------------------------------- |
+| `a ^ 0 = a`            | XOR with 0 gives the same number |
+| `a ^ a = 0`            | XOR with itself gives 0          |
+| `a ^ b ^ a = b`        | Same values cancel out           |
+| XOR is **commutative** | `a ^ b = b ^ a`                  |
+| XOR is **associative** | `(a ^ b) ^ c = a ^ (b ^ c)`      |
+
+---
