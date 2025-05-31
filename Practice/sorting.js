@@ -1,5 +1,5 @@
-/////////////////////////////////////////////////////////////////////
-/////BUBBLE SORT
+/////////////////////////////////////////////////////////////////////////
+////////////////////////////BUBBLE SORT//////////////////////////////////
 const nums = [1, 3, 6, 8, 2, 5, 4, 7];
 function bubbleSort(nums) {
   const n = nums.length;
@@ -17,4 +17,73 @@ function bubbleSort(nums) {
   }
   console.log(nums);
 }
-bubbleSort(nums);
+// bubbleSort(nums);
+
+////////////////////////////////////////////////////////////////////////
+/////////////////////SELECTION SORT////////////////////////////////////
+
+function selectionSort(nums) {
+  for (let i = nums.length - 1; i > 0; i--) {
+    let maxIndex = 0;
+    for (let j = 1; j <= i; j++) {
+      if (nums[j] > nums[maxIndex]) maxIndex = j;
+    }
+    [nums[maxIndex], nums[i]] = [nums[i], nums[maxIndex]];
+  }
+  console.log(nums);
+}
+// selectionSort(nums);
+
+/////////////////////////////////////////////////////////////////////
+////////////INSERTION SORT//////////////////////////////////////////
+
+function insertionSort(nums) {
+  for (let i = 0; i < nums.length - 1; i++) {
+    for (let j = i + 1; j > 0; j--) {
+      if (nums[j - 1] < nums[j]) break;
+      [nums[j - 1], nums[j]] = [nums[j], nums[j - 1]];
+    }
+  }
+  console.log(nums);
+}
+// insertionSort(nums);
+
+///////////////////////////////////////////////////////////////////////////
+////////////////////////////MERGE SORT///////////////////////////////////
+
+function mergeSortInPlace(arr, s, e) {
+  if (e - s <= 1) return;
+
+  let mid = Math.floor((s + e) / 2); // safer than just (s + e)/2
+
+  mergeSortInPlace(arr, s, mid);
+  mergeSortInPlace(arr, mid, e);
+
+  mergeInPlace(arr, s, mid, e);
+}
+
+function mergeInPlace(arr, s, m, e) {
+  let mix = [];
+
+  let i = s;
+  let j = m;
+  let k = 0;
+
+  while (i < m && j < e) {
+    if (arr[i] < arr[j]) {
+      mix[k++] = arr[i++];
+    } else {
+      mix[k++] = arr[j++];
+    }
+  }
+
+  while (i < m) mix[k++] = arr[i++];
+  while (j < e) mix[k++] = arr[j++];
+
+  for (let l = 0; l < mix.length; l++) {
+    arr[s + l] = mix[l];
+  }
+}
+
+mergeSortInPlace(nums, 0, nums.length);
+console.log(nums); // [2, 3, 4, 5, 8]
