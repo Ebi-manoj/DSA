@@ -29,4 +29,66 @@ stack.push(10);
 stack.push(11);
 stack.push(12);
 stack.push(13);
-stack.printStack();
+// stack.printStack();
+
+////////////////////////////////////////
+//Revers a string ---> eg: 'the sky is blue' ---> blue is the sky'
+
+function reverseString(string) {
+  const stack = [];
+  string.split(' ').forEach(word => word.length && stack.push(word));
+  let final = '';
+  while (stack.length) {
+    final += stack.pop() + ' ';
+  }
+  return final;
+}
+
+// console.log(reverseString('the sky is blue'));
+
+///////////////////////////////////////////////
+/// Valid parenthisis
+const isValid = function (s) {
+  const stack = [];
+  for (let i = 0; i < s.length; i++) {
+    const char = s[i];
+    if (char === '(' || char === '{' || char === '[') {
+      stack.push(char);
+    } else if (!stack.length) {
+      return false;
+    } else {
+      const top = stack.pop();
+      if (
+        (char == ')' && top !== '(') ||
+        (char == '}' && top !== '{') ||
+        (char == ']' && top !== '[')
+      )
+        return false;
+    }
+  }
+  return stack.length == 0;
+};
+
+//////////////////////////////////////////////////////////////////////
+////IMPLEMENT STACK USING QUEUES
+
+function stackUsingQueue() {
+  function stack() {
+    this.q1 = [];
+    this.q2 = [];
+  }
+
+  stack.prototype.push = function (x) {
+    while (this.q1.length !== 0) {
+      this.q2.push(this.q1.shift());
+    }
+    this.q1.push(x);
+    while (this.q2.length !== 0) {
+      this.q1.push(this.q2.shift());
+    }
+  };
+  stack.prototype.top = function () {
+    if (this.q1.length == 0) return false;
+    return this.q1.length[0];
+  };
+}
