@@ -92,3 +92,22 @@ function stackUsingQueue() {
     return this.q1.length[0];
   };
 }
+
+/////////////////////////////////////////////////////////////////
+///delete a middle element of the stack
+function deleteMiddle() {
+  const stack = [1, 2, 3, 4, 5, 7, 8, 9, 2];
+  const stack2 = [];
+  let mid = Math.floor(stack.length / 2);
+
+  while (mid >= 0) {
+    const top = stack.pop();
+    if (mid > 0) stack2.push(top);
+    mid--;
+  }
+  while (stack2.length !== 0) {
+    stack.push(stack2.pop());
+  }
+  console.log(stack);
+}
+deleteMiddle();

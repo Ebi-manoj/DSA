@@ -1,5 +1,11 @@
 /////////////////////////////////////////////////////////////////////////
 ////////////////////////////BUBBLE SORT//////////////////////////////////
+// ✅Time Complexity of Bubble Sort
+// Case	Time Complexity
+// Worst Case	O(n²)
+// Average Case	O(n²)
+// Best Case	O(n)
+
 const nums = [1, 3, 6, 8, 2, 5, 4, 7];
 function bubbleSort(nums) {
   const n = nums.length;
@@ -21,6 +27,11 @@ function bubbleSort(nums) {
 
 ////////////////////////////////////////////////////////////////////////
 /////////////////////SELECTION SORT////////////////////////////////////
+// ✅Time Complexity of Selection Sort
+// Case	Time Complexity
+// Best Case	O(n²)
+// Average Case	O(n²)
+// Worst Case	O(n²)
 
 function selectionSort(nums) {
   for (let i = nums.length - 1; i > 0; i--) {
@@ -36,7 +47,11 @@ function selectionSort(nums) {
 
 /////////////////////////////////////////////////////////////////////
 ////////////INSERTION SORT//////////////////////////////////////////
-
+// ✅Time Complexity of Insertion Sort
+// Case	Time Complexity
+// Best Case	O(n)
+// Average Case	O(n²)
+// Worst Case	O(n²)
 function insertionSort(nums) {
   for (let i = 0; i < nums.length - 1; i++) {
     for (let j = i + 1; j > 0; j--) {
@@ -89,6 +104,11 @@ function mergeInPlace(arr, s, m, e) {
 
 ////////////////////////////////////////////////////////////////
 //////////////QUICK SORT///////////////////////////////////////
+// ✅ Quick Sort — Time & Space Complexity
+// Case	Time Complexity
+// Best Case	O(n log n)
+// Average Case	O(n log n)
+// Worst Case	O(n²)
 
 function sort(nums, low, high) {
   if (low >= high) {
