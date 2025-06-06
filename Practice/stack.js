@@ -31,6 +31,55 @@ stack.push(12);
 stack.push(13);
 // stack.printStack();
 
+///////////////////////////////////////////////
+///STACK USING LINKEDLIST
+class Node {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
+}
+
+class LinkedStack {
+  constructor() {
+    this.top = null;
+  }
+
+  push(data) {
+    const newNode = new Node(data);
+    newNode.next = this.top;
+    this.top = newNode;
+  }
+  pop() {
+    if (this.top == null) return 'UnderFlow';
+    const top = this.top;
+    this.top = this.top.next;
+    return top;
+  }
+  peek() {
+    if (this.top == null) return 'UnderFlow';
+    return this.top.data;
+  }
+  print() {
+    if (this.top == null) return 'Undeflow';
+    let current = this.top;
+    while (current !== null) {
+      console.log(current.data);
+      current = current.next;
+    }
+  }
+}
+
+const linkedStack = new LinkedStack();
+linkedStack.push(5);
+linkedStack.push(4);
+linkedStack.push(3);
+linkedStack.push(2);
+linkedStack.push(1);
+linkedStack.pop();
+console.log(linkedStack.peek());
+linkedStack.print();
+
 ////////////////////////////////////////
 //Revers a string ---> eg: 'the sky is blue' ---> blue is the sky'
 
@@ -111,3 +160,23 @@ function deleteMiddle() {
   console.log(stack);
 }
 deleteMiddle();
+
+///////////////////////////////////////////////////////////////
+//Sort a string using stack
+const str = 'efgabcd';
+
+function sort() {
+  const stack = str.split('');
+  const stack2 = [];
+
+  while (stack.length) {
+    const top = stack.pop();
+
+    while (stack2.length && stack2[stack2.length - 1] > top) {
+      stack.push(stack2.pop());
+    }
+    stack2.push(top);
+  }
+
+  console.log(stack2);
+}

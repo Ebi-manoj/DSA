@@ -65,6 +65,10 @@ function insertionSort(nums) {
 
 ///////////////////////////////////////////////////////////////////////////
 ////////////////////////////MERGE SORT///////////////////////////////////
+// Time Complexity:
+// Best: O(n log n)
+// Average: O(n log n)
+// Worst: O(n log n)
 
 function mergeSortInPlace(arr, s, e) {
   if (e - s <= 1) return;
