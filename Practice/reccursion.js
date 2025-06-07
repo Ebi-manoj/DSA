@@ -160,3 +160,34 @@ function question12() {
   console.log(search([1, 2, 3, 4, 5, 6], 6, 0));
 }
 question12();
+
+//////////////////////////////////////////////////////////
+///LEETCODE 17
+const letterCombinations = function (digits) {
+  if (digits.length == 0) return [];
+
+  const letters = {
+    2: 'abc',
+    3: 'def',
+    4: 'ghi',
+    5: 'jkl',
+    6: 'mno',
+    7: 'pqrs',
+    8: 'tuv',
+    9: 'wxyz',
+  };
+  const result = [];
+  function combination(index, combo) {
+    if (combo.length == digits.length) {
+      result.push(combo);
+      return;
+    }
+    let chars = letters[digits[index]];
+    for (const n of chars) {
+      combination(index + 1, combo + n);
+    }
+  }
+
+  combination(0, '');
+  return result;
+};
