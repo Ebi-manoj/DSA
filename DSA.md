@@ -339,3 +339,39 @@ The { name: "Ebi" } object is stored in the heap.
 ---
 
 ---
+
+## TREE DATA STRUCTURES 🌳
+
+What is Tree?
+
+A tree in DSA (Data Structures and Algorithms) is a way to organize data. It looks like an upside-down tree with a root at the top and branches spreading out. Each point on the tree is called a node, and the lines connecting them are called edges. The top node is the root, and nodes with no children are called leaves.
+
+### Types of Trees in Data Structure
+
+#### 1) Binary Tree
+
+A binary tree is a tree data structure where each node has at most two children, referred to as the left child and the right child.
+
+#### 2) Binary Search Tree
+
+A binary search tree is a binary tree where each node has a value, and the left child's value is less than the parent's value, while the right child's value is greater than the parent's value.
+
+#### 3) AVL Tree
+
+An AVL tree is a self-balancing binary search tree where the difference in heights between the left and right subtrees of any node is at most one.
+
+#### 4) Red Black Tree
+
+A red-black tree is a self-balancing binary search tree where each node contains an extra bit for color (red or black) to ensure the tree remains balanced.
+
+#### 5) Heap
+
+A heap is a special tree-based data structure that satisfies the heap property: in a max-heap, each parent node is greater than or equal to its children; in a min-heap, each parent node is less than or equal to its children.
+
+#### 6) B-Tree
+
+A B-tree is a self-balancing search tree in which nodes can have multiple children. It is commonly used in databases and file systems.
+
+#### 7) Segment Tree
+
+A segment tree is a binary tree used for storing intervals or segments. It allows querying which segments contain a given point.
