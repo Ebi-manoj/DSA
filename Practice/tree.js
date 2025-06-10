@@ -98,14 +98,14 @@ class BST {
       else this.insertNode(root.right, newNode);
     }
   }
-  search(root, value) {
+  search(root, data) {
     if (!root) return false;
-    if (root.data == value) return true;
+    if (root.data == data) return true;
 
-    if (value < root.data) {
-      return this.search(root.left, value);
+    if (data < root.data) {
+      return this.search(root.left, data);
     } else {
-      return this.search(root.right, value);
+      return this.search(root.right, data);
     }
   }
   ////////////////////DFS TRAVERSAL///////////////////
@@ -171,13 +171,13 @@ class BST {
     return this.max(root.right);
   }
 
-  deleteNode(root, value) {
+  deleteNode(root, data) {
     if (!root) return null;
 
-    if (value < root.data) {
-      root.left = this.deleteNode(root.left, value);
-    } else if (value > root.data) {
-      root.right = this.deleteNode(root.right, value);
+    if (data < root.data) {
+      root.left = this.deleteNode(root.left, data);
+    } else if (data > root.data) {
+      root.right = this.deleteNode(root.right, data);
     } else {
       if (!root.left && !root.right) {
         return null;
@@ -186,9 +186,9 @@ class BST {
       } else if (!root.right) {
         return root.right;
       } else {
-        let minValue = this.min(root.right);
-        root.value = minValue;
-        root.right = this.deleteNode(root.right, minValue);
+        let mindata = this.min(root.right);
+        root.data = mindata;
+        root.right = this.deleteNode(root.right, mindata);
       }
     }
     return root;
@@ -196,11 +196,32 @@ class BST {
 }
 
 const bst = new BST();
-console.log(bst.isEmpty());
 bst.insert(10);
 bst.insert(15);
 bst.insert(5);
 bst.insert(3);
 bst.insert(7);
-console.log(bst.deleteNode(bst.root, 15));
-bst.inOrder(bst.root);
+
+/////////////////////////////////////////////////////////////////////
+///////Find closest node in tree to the target number
+
+BST.prototype.findClosest = function (root, target) {
+  let closest = root.data;
+
+  while (root !== null) {
+    if (Math.abs(target - root.data) < Math.abs(target - closest)) {
+      closest = root.data;
+    }
+
+    if (target < root.data) {
+      root = root.left;
+    } else if (target > root.data) {
+      root = root.right;
+    } else {
+      break;
+    }
+  }
+  return closest;
+};
+
+console.log(bst.findClosest(bst.root, 2));
