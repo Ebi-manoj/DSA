@@ -350,7 +350,27 @@ A tree in DSA (Data Structures and Algorithms) is a way to organize data. It loo
 
 #### 1) Binary Tree
 
+-Time Complexity(o(n))
+
 A binary tree is a tree data structure where each node has at most two children, referred to as the left child and the right child.
+
+TYPES OF BINARY TREE
+
+-Full binary Tree
+
+A full binary tree is a tree where every node has either 0 or 2 children.
+
+-Complete Binary Tree
+
+A complete binary tree is a tree where all levels are fully filled except possibly the last level, which is filled from left to right.
+
+-Perfect Binary Tree
+
+A perfect binary tree is a tree where all internal nodes have exactly two children and all leaf nodes are at the same level.
+
+-Balanced Binary Tree
+
+A balanced binary tree is a tree where the height of the left and right subtrees of any node differ by at most one.
 
 #### 2) Binary Search Tree
 
@@ -375,3 +395,5 @@ A B-tree is a self-balancing search tree in which nodes can have multiple childr
 #### 7) Segment Tree
 
 A segment tree is a binary tree used for storing intervals or segments. It allows querying which segments contain a given point.
+
+---
