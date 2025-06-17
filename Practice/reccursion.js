@@ -191,3 +191,21 @@ const letterCombinations = function (digits) {
   combination(0, '');
   return result;
 };
+
+////////////////////////////////////////////////////////////////
+/////LEETCODE 3211
+const validStrings = function (n) {
+  const output = [];
+  function createBinary(r) {
+    if (r.length == n) {
+      output.push(r);
+      return;
+    }
+    createBinary(r + '1');
+    if (r.length == 0 || r[r.length - 1] !== '0') {
+      createBinary(r + '0');
+    }
+  }
+  createBinary('');
+  return output;
+};

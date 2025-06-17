@@ -184,7 +184,7 @@ class BST {
       } else if (!root.left) {
         return root.right;
       } else if (!root.right) {
-        return root.right;
+        return root.left;
       } else {
         let mindata = this.min(root.right);
         root.data = mindata;
@@ -225,3 +225,16 @@ BST.prototype.findClosest = function (root, target) {
 };
 
 console.log(bst.findClosest(bst.root, 2));
+
+/////////////////////////////////////////////////////////////////////
+/////Check its a BST or not
+BST.prototype.isBst = function (root, min = -Infinity, max = Infinity) {
+  if (!root) return true;
+
+  if (root.data <= min || root.data >= max) return false;
+
+  return (
+    this.isBst(root.left, min, root.data) &&
+    this.isBst(root.right, root.data, max)
+  );
+};

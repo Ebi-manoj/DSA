@@ -29,6 +29,7 @@ class Trie {
       if (!current.children[char]) {
         return false;
       }
+      current = current.children[char];
     }
     return current.endofWord;
   }
@@ -48,7 +49,7 @@ class Trie {
     const node = current.children[char];
     if (!node) return false;
 
-    const shouldDelete = _remove(node, word, index++);
+    const shouldDelete = _remove(node, word, index + 1);
 
     if (shouldDelete) {
       delete current.children[char];
