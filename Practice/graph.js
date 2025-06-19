@@ -42,8 +42,7 @@ class Graph {
     while (queue.length) {
       const vertex = queue.shift();
       result.push(vertex);
-
-      for (const n of this.adjacentList[vertex]) {
+      for (const n of this.list[vertex]) {
         if (!visited.has(n)) {
           visited.add(n);
           queue.push(n);
@@ -56,14 +55,15 @@ class Graph {
     const visited = new Set();
     const stack = [start];
     const result = [];
+    visited.add(start);
 
     while (stack.length) {
       const vertex = stack.pop();
-      if (!visited.has(vertex)) {
-        visited.add(vertex);
-        result.push(vertex);
-        for (const n of this.adjacentList[vertex]) {
+      result.push(vertex);
+      for (const n of this.list[vertex]) {
+        if (!visited.has(n)) {
           stack.push(n);
+          visited.add(n);
         }
       }
     }
@@ -88,8 +88,7 @@ Graph.prototype.detectCycle = function () {
     }
     return false;
   };
-  dfs('A', -1);
-  return false;
+  return dfs('A', -1);
 };
 const graph = new Graph();
 graph.addEdges('A', 'B');

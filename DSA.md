@@ -397,3 +397,51 @@ A B-tree is a self-balancing search tree in which nodes can have multiple childr
 A segment tree is a binary tree used for storing intervals or segments. It allows querying which segments contain a given point.
 
 ---
+
+## GRAPH DATA STRUCTURES
+
+A graph in data structure is a way to show how things are connected. Think of it like a map of roads connecting different cities. In a graph, the cities are called "nodes" or "vertices," and the roads are called "edges." Graphs help us understand how things are linked together and how they interact.
+
+#### TYPES OF GRAPH
+
+- Directed graph
+
+In a directed graph, edges have a direction, meaning they go from one node to another in a specific way.
+
+- Undirected graph
+
+In an undirected graph, edges do not have a direction. They simply connect two nodes without any particular order.
+
+- Weighted Graph
+
+In a weighted graph, edges have weights or costs associated with them. These weights can represent distances, costs, or any other metric.
+
+- Unweighted graph
+
+In an unweighted graph, all edges have the same weight, typically considered as 1.
+
+- Cyclic graph
+
+A cyclic graph contains at least one cycle, meaning you can start at a node and follow a path that leads back to the same node
+
+- Acyclic graph
+
+An acyclic graph does not contain any cycles.
+
+- Connected graph
+
+A connected graph has a path between every pair of nodes.
+
+- Disconnected graph
+
+A disconnected graph has at least one pair of nodes with no path between them.
+
+#### Representations of Graph Data Structure
+
+- Adjacency Matrix
+
+An adjacency matrix is a 2D array used to represent a graph. Each cell in the matrix indicates whether an edge exists between a pair of vertices. If an edge exists, the cell contains a value (typically 1 for unweighted graphs or the weight of the edge for weighted graphs); otherwise, it contains 0.
+
+- Adjacency List
+
+An adjacency list is an array of lists. The array's indices represent the vertices, and each element in the array is a list of vertices adjacent to the vertex at that index.

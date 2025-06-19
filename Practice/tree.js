@@ -50,6 +50,15 @@ class Tree {
     console.log(node.data);
     this.display(node.right);
   }
+
+  height(node = this.root) {
+    if (node == null) return -1;
+
+    const left = height(node.left);
+    const right = height(node.right);
+
+    return Math.max(left, right) + 1;
+  }
 }
 
 const tree = new Tree();
@@ -237,4 +246,24 @@ BST.prototype.isBst = function (root, min = -Infinity, max = Infinity) {
     this.isBst(root.left, min, root.data) &&
     this.isBst(root.right, root.data, max)
   );
+};
+
+/////////////////////////////////////////////////////////////////
+//Find kth smallest tree in BST
+
+BST.prototype.kthSmallest = function (root, k) {
+  let ans = 0;
+  inOrder(root);
+  return ans;
+  function inOrder(node) {
+    if (node == null) return;
+
+    inOrder(node.left);
+    k--;
+    if (k == 0) {
+      ans = node.val;
+      return;
+    }
+    inOrder(node.right);
+  }
 };
