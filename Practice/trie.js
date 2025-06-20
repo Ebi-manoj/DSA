@@ -70,6 +70,23 @@ class Trie {
     return result;
   }
 
+  longestCommonPrefix() {
+    let prefix = '';
+    let node = this.root;
+
+    while (true) {
+      const keys = Object.keys(node.children);
+
+      if (keys.length !== 1 || node.isEnd) break;
+
+      const nextChar = keys[0];
+      prefix += nextChar;
+      node = node.children[nextChar];
+    }
+
+    return prefix;
+  }
+
   dfs(node, path, result) {
     if (node.endofWord) {
       result.push(path);

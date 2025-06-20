@@ -1,3 +1,56 @@
+//////////////////////////////////////////////////////////////////////////////
+//////////General tree
+class Node {
+  constructor(data) {
+    this.data = data;
+    this.children = [];
+  }
+}
+
+class GeneralTree {
+  constructor(data) {
+    this.root = new Node(data);
+  }
+
+  addNode(parent, data) {
+    const parentNode = this.search(parent);
+    if (parentNode) {
+      parentNode.children.push(new Node(data));
+    } else {
+      console.log('No Parent Found');
+    }
+  }
+
+  search(parent, node = this.root) {
+    if (node.data == parent) {
+      return node;
+    }
+
+    for (const n of node.children) {
+      const found = this.search(parent, n);
+      if (found) {
+        return found;
+      }
+    }
+    return null;
+  }
+  dfs(node = this.root) {
+    console.log(node.data);
+    for (const n of node.children) {
+      this.dfs(n);
+    }
+  }
+}
+
+const gtree = new GeneralTree(20);
+gtree.addNode(20, 10);
+gtree.addNode(20, 8);
+gtree.addNode(20, 9);
+gtree.addNode(9, 3);
+gtree.addNode(9, 2);
+gtree.addNode(9, 1);
+gtree.dfs();
+
 //////////////////////////////////////////////////////////////////
 /////BINARY TREE
 
