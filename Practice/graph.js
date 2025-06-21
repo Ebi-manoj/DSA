@@ -97,3 +97,28 @@ graph.addEdges('C', 'D');
 graph.addEdges('D', 'E');
 graph.addEdges('E', 'B');
 console.log(graph.detectCycle());
+
+////////////////////////////////////////////////////////////////////////////////
+////LeetCode 133
+const cloneGraph = function (node) {
+  if (!node) return null;
+
+  const clone = new Node(node.val);
+  const queue = [node];
+  const map = new Map();
+  map.set(node, clone);
+
+  while (queue.length) {
+    const current = queue.shift();
+
+    for (const neighbor of current.neighbors) {
+      if (!map.has(neighbor)) {
+        map.set(neighbor, new Node(neighbor.val));
+        queue.push(neighbor);
+      }
+      map.get(current).neighbors.push(map.get(neighbor));
+    }
+  }
+
+  return clone;
+};

@@ -70,6 +70,15 @@ class Trie {
     return result;
   }
 
+  dfs(node, path, result) {
+    if (node.endofWord) {
+      result.push(path);
+    }
+    for (const char in node.children) {
+      this.dfs(node.children[char], path + char, result);
+    }
+  }
+
   longestCommonPrefix() {
     let prefix = '';
     let node = this.root;
@@ -85,15 +94,6 @@ class Trie {
     }
 
     return prefix;
-  }
-
-  dfs(node, path, result) {
-    if (node.endofWord) {
-      result.push(path);
-    }
-    for (const char in node.children) {
-      this.dfs(node.children[char], path + char, result);
-    }
   }
 }
 

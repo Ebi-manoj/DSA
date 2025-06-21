@@ -302,7 +302,7 @@ BST.prototype.isBst = function (root, min = -Infinity, max = Infinity) {
 };
 
 /////////////////////////////////////////////////////////////////
-//Find kth smallest tree in BST
+//Find kth smallest node in BST
 
 BST.prototype.kthSmallest = function (root, k) {
   let ans = 0;
