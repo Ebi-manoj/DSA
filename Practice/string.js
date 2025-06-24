@@ -173,3 +173,45 @@ const romanToInt = function (s) {
   }
   return output;
 };
+
+//////////////////////////////////////////////////////////////////////////
+///////////1432
+const maxDiff = function (num) {
+  let numString = num.toString();
+  let a = '';
+  let b = '';
+
+  let maxPick = '';
+  for (let i = 0; i < numString.length; i++) {
+    if (numString[i] !== '9') {
+      maxPick = numString[i];
+      break;
+    }
+  }
+
+  for (let i = 0; i < numString.length; i++) {
+    a += numString[i] === maxPick ? '9' : numString[i];
+  }
+
+  let minPick = '';
+  let minReplace = '';
+
+  if (numString[0] !== '1') {
+    minPick = numString[0];
+    minReplace = '1';
+  } else {
+    for (let i = 1; i < numString.length; i++) {
+      if (numString[i] !== '0' && numString[i] !== '1') {
+        minPick = numString[i];
+        minReplace = '0';
+        break;
+      }
+    }
+  }
+
+  for (let i = 0; i < numString.length; i++) {
+    b += numString[i] === minPick ? minReplace : numString[i];
+  }
+
+  return a - b;
+};
